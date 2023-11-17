@@ -2,16 +2,13 @@
 FROM python:3.9
 
 # Clone your Git repository into the current directory
-RUN git clone https://github.com/DANNYDEE93/Deployment-8v2.git
+RUN git clonehttps://github.com/NMonKLabs77/Group1_Deployment9.git
 
 # Change to the "backend" directory inside your app directory
-WORKDIR Deployment-8v2/backend/
+WORKDIR Group1_Deployment9/backend/
 
 # Install the Python dependencies from requirements.txt
 RUN pip install -r requirements.txt
-
-# Install Gunicorn for serving the Django application
-RUN pip install gunicorn
 
 # Perform Django database migrations
 RUN python manage.py migrate
@@ -20,4 +17,4 @@ RUN python manage.py migrate
 EXPOSE 8000
 
 # Start the Django application using Gunicorn
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "my_project.wsgi:application"]
+CMD python manage.py runserver 0.0.0.0:8000

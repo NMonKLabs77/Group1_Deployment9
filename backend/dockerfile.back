@@ -2,7 +2,7 @@
 FROM python:3.9
 
 # Clone your Git repository into the current directory
-RUN git clonehttps://github.com/NMonKLabs77/Group1_Deployment9.git
+RUN git clone https://github.com/NMonKLabs77/Group1_Deployment9.git
 
 # Change to the "backend" directory inside your app directory
 WORKDIR Group1_Deployment9/backend/

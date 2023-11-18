@@ -2,7 +2,7 @@
 FROM python:3.9
 
 # Clone your Git repository into the current directory
-RUN git clonehttps://github.com/NMonKLabs77/Group1_Deployment9.git
+RUN git clone https://github.com/NMonKLabs77/Group1_Deployment9.git
 
 # Change to the "backend" directory inside your app directory
 WORKDIR Group1_Deployment9/backend/
@@ -17,4 +17,4 @@ RUN python manage.py migrate
 EXPOSE 8000
 
 # Start the Django application using Gunicorn
-CMD python manage.py runserver 0.0.0.0:8000
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]

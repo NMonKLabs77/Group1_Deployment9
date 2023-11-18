@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ecommerce-appbe
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ecom-backend
+  template:
+    metadata:
+      labels:
+        app: ecom-backend
+    spec:
+      containers:
+        - name: ecom-backend
+          image: z0sun/d9-backend:v1
+          ports:
+            - name: http
+              containerPort: 8000
+      nodeSelector:
+        private: true

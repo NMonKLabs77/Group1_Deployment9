@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: ecommerce-appbe
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: ecom-backend
@@ -14,9 +14,8 @@ spec:
     spec:
       containers:
         - name: ecom-backend
-          image: z0sun/d9-backend:v1
+          image: z0sun/webstoreback:1.0
           ports:
             - name: http
               containerPort: 8000
-      nodeSelector:
-        private: true
+      

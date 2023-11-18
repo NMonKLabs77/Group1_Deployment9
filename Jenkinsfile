@@ -16,6 +16,7 @@ pipeline {
                 sh 'docker build -t z0sun/webstore:1.0 -f dockerfile.back:v1.0 .'
                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
                 sh 'docker push z0sun/webstore:1.0'  // Corrected the Docker image tag for push
+                sh 'docker push z0sun/webstore:1.0'  // Corrected the Docker image tag for push
             }
         }
 
@@ -69,3 +70,4 @@ pipeline {
         }
     }
 }
+

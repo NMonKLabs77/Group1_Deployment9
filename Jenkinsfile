@@ -8,18 +8,14 @@ pipeline {
         AWS_EKS_CLUSTER_NAME = 'cluster05'
         AWS_EKS_REGION = 'us-east-1'
         KUBEMANIFESTS_DIR = '/home/ubuntu/D9/c4_deployment-9/backend'
-        SLACK_WEBHOOK_URL = ''
-    }          
-
+    }
 
     stages {
         stage('Build Backend') {
             steps {
                 sh 'docker build -t z0sun/webstore:1.0 -f dockerfile.back:v1.0 .'
                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-
-                sh 'docker push z0sun/dockefile.back:v1'
-
+                sh 'docker push z0sun/webstore:1.0'  // Corrected the Docker image tag for push
             }
         }
 
@@ -27,13 +23,9 @@ pipeline {
             steps {
                 sh 'docker build -t morenodoesinfra/webstore:1.0 -f Dockerfile.frontend .'
                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-
-
-                sh 'docker push z0sun/dockerfile.front:v1.0'
-
-                }
+                sh 'docker push morenodoesinfra/webstore:1.0'  // Corrected the Docker image tag for push
             }
-        
+        }
 
         stage('Deploy to EKS') {
             agent {
@@ -62,13 +54,17 @@ pipeline {
                         sh """
                             curl -X POST -H 'Content-type: application/json' \
                             --data '{"text":"Jenkins Pipeline Complete!"}' \
-                            ${SLACK_WEBHOOK_URL}
                         """
                     }
                 }
             }
         }
-    }
+
+        stage('Run SlackAPI Script') {
+            steps {
+                checkout scm
+                sh 'pip install python-dotenv'  // Install python-dotenv library
+                sh 'python slackapi.py'  // Run the SlackAPI script
             }
         }
     }

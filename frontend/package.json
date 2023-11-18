@@ -1,7 +1,7 @@
 {
   "name": "frontend",
   "version": "0.1.0",
-  "proxy": "http://backservice:8000",
+  "proxy": "http://ecombe-service-clusterip:8000",
   "private": true,
   "dependencies": {
     "@stripe/react-stripe-js": "^1.4.1",

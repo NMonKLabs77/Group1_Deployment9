@@ -64,6 +64,7 @@ pipeline {
         stage('Run SlackAPI Script') {
             steps {
                 checkout scm
+                sh 'pip install requests'
                 sh 'pip install python-dotenv'  // Install python-dotenv library
                 sh 'python slackapi.py'  // Run the SlackAPI script
             }

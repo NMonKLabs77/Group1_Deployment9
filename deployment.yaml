@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: ecom-frontend
-          image: z0sun/webstorefront:v1
+          image: z0sun/webstorefront:1.0
           ports:
             - name: http
               containerPort: 3000

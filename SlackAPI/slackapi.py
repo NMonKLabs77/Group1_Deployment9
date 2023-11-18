@@ -4,6 +4,7 @@ import os
 import requests
 from dotenv import load_dotenv, dotenv_values
 
+# call the .env in this script
 load_dotenv()
 
 # Send message as JSON

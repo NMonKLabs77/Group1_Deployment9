@@ -5,7 +5,7 @@ pipeline {
 
     environment {
         DOCKERHUB_CREDENTIALS = credentials('z0sun-dockerhub')
-        AWS_EKS_CLUSTER_NAME = ''
+        AWS_EKS_CLUSTER_NAME = 'cluster05'
         AWS_EKS_REGION = 'us-east-1'
         KUBEMANIFESTS_DIR = '/home/ubuntu/D9/c4_deployment-9/backend'
         SLACK_WEBHOOK_URL = ''

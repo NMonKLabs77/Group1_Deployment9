@@ -7,7 +7,7 @@ pipeline {
         DOCKERHUB_CREDENTIALS = credentials('z0sun-dockerhub')
         AWS_EKS_CLUSTER_NAME = ''
         AWS_EKS_REGION = 'us-east-1'
-        KUBEMANIFESTS_DIR = '/home/ubuntu/D9/c4_deployment-9/'
+        KUBEMANIFESTS_DIR = '/home/ubuntu/D9/c4_deployment-9/backend'
         SLACK_WEBHOOK_URL = ''
     }          
 
@@ -15,9 +15,11 @@ pipeline {
     stages {
         stage('Build Backend') {
             steps {
-                sh 'docker build -t z0sun/webstore:1.0 -f dockerfile.back .'
+                sh 'docker build -t z0sun/webstore:1.0 -f dockerfile.back:v1.0 .'
                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-                sh 'docker push z0sun/webstoreback:v1.0'
+
+                sh 'docker push z0sun/dockefile.back:v1'
+
             }
         }
 
@@ -25,7 +27,10 @@ pipeline {
             steps {
                 sh 'docker build -t morenodoesinfra/webstore:1.0 -f Dockerfile.frontend .'
                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-                sh 'docker push z0sun/webstore.front:v1.0'
+
+
+                sh 'docker push z0sun/dockerfile.front:v1.0'
+
                 }
             }
         

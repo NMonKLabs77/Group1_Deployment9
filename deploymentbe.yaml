@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: ecom-backend
-          image: z0sun/d9-backend:v1
+          image: z0sun/webstoreback:v1
           ports:
             - name: http
               containerPort: 8000

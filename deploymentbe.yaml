@@ -14,7 +14,9 @@ spec:
     spec:
       containers:
         - name: ecom-backend
-          image: lani23/ecombe
+          image: z0sun/d9-backend:v1
           ports:
             - name: http
               containerPort: 8000
+      nodeSelector:
+        private: true

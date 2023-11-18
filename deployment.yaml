@@ -14,9 +14,11 @@ spec:
     spec:
       containers:
         - name: ecom-frontend
-          image: lani23/ecomfe
+          image: z0sun/d9-frontend:v1
           ports:
             - name: http
               containerPort: 3000
+      nodeSelector:
+        private: false
 
 

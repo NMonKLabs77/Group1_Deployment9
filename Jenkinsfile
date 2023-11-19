@@ -51,10 +51,7 @@ pipeline {
         sh 'pip3 install requests'
         sh 'pip3 install python-dotenv'
         sh 'export PATH=$PATH:/home/ubuntu/.local/bin'
-        
-        dir('SlackAPI') {
-            sh 'python3 slackapi.py'
-        }
+        sh 'python3 slackapi.py'
       }
     }
 

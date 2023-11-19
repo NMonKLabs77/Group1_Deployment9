@@ -91,11 +91,13 @@ Integrate Jenkins with Slack
 
 ![Screen Shot 2023-11-19 at 1 28 01 AM](https://github.com/NMonKLabs77/Group1_Deployment9/assets/135557197/795ecad0-bbea-4689-8243-dba442ba63b1)
 
+<img width="774" alt="284041261-22cc76a0-873e-4c39-bb18-75d96b1ade42" src="https://github.com/NMonKLabs77/Group1_Deployment9/assets/135557197/714d1346-6b8d-4d05-9d74-9a601fc53abe">
+
 ## Deployment to EKS:
    - Deployment to EKS was successful after applying the deployment, service, and ingress YAML files. However, we faced an issue with Jenkins that required further investigation and resolution. This part of the process highlighted the importance of thorough testing and validation in each deployment phase.
 
 <img width="1356" alt="deploymentsuccess" src="https://github.com/NMonKLabs77/Group1_Deployment9/assets/135557197/61a13474-24a7-4648-96b0-4ca9ce19d165">
-<img width="774" alt="284041261-22cc76a0-873e-4c39-bb18-75d96b1ade42" src="https://github.com/NMonKLabs77/Group1_Deployment9/assets/135557197/714d1346-6b8d-4d05-9d74-9a601fc53abe">
+
 
 
 ## Troubleshooting and Optimization:

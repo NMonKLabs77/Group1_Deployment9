@@ -118,6 +118,8 @@ Integrate Jenkins with Slack
 
 - Created an alarm for each node in the cluster that will send an sns message to the Devops engineer if the status of the nodes fails for 5 minutes or more. Early detection of node failures allows for proactive intervention, reducing the risk of application downtime or degraded performance.
 
+<img width="774" alt="284041261-22cc76a0-873e-4c39-bb18-75d96b1ade44" src=https://github.com/NMonKLabs77/Group1_Deployment9/blob/Chief-Architect/Screenshots/Cloudwatch.png>
+
 ## Troubleshooting and Optimization:
 
 - Dockerfile Build Stage Error:

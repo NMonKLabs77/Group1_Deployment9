@@ -47,7 +47,8 @@ pipeline {
         stage('Run SlackAPI Script') {
             steps {
                 checkout scm
-                sh 'sudo apt install -y python3-pip'
+                sh 'sudo apt install -y python3-pip '
+                sh 'PATH=$PATH:/home/ubuntu/.local/bin'
                 sh 'pip install requests'
                 sh 'pip install python-dotenv'  // Install python-dotenv library
                 sh 'python slackapi.py'  // Run the SlackAPI script

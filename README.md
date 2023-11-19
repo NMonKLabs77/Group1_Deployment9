@@ -100,7 +100,7 @@ def send_slack_message(message):
 if __name__ == '__main__':
     send_slack_message('Jenkins pipeline completed.')
 ```
-![Screen Shot 2023-11-18 at 1 35 55 PM](https://github.com/NMonKLabs77/Group1_Deployment9/assets/135557197/e0697cb3-1b81-4f27-a550-d7bf05f66d2c)
+![Screen Shot 2023-11-19 at 1 28 01 AM](https://github.com/NMonKLabs77/Group1_Deployment9/assets/135557197/795ecad0-bbea-4689-8243-dba442ba63b1)
 
 ## Troubleshooting and Optimization:
 

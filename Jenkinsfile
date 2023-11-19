@@ -7,7 +7,7 @@ pipeline {
         DOCKERHUB_CREDENTIALS = credentials('z0sun-dockerhub')
         AWS_EKS_CLUSTER_NAME = 'cluster12'
         AWS_EKS_REGION = 'us-east-1'
-        KUBEMANIFESTS_DIR = '/home/ubuntu/D9/Group1_Deployment9/KUBESMANIFESTS_DIR'
+        KUBEMANIFESTS_DIR = '/home/ubuntu/Group1_Deployment9/KUBESMANIFESTS_DIR'
     }
 
     stages {

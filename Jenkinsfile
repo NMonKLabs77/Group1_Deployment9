@@ -2,31 +2,27 @@ pipeline {
     agent {
         label 'awsDeploy'
     }
-
     environment {
         DOCKERHUB_CREDENTIALS = credentials('z0sun-dockerhub')
-        AWS_EKS_CLUSTER_NAME = 'cluster'
+        AWS_EKS_CLUSTER_NAME = 'cluster12'
         AWS_EKS_REGION = 'us-east-1'
-        KUBEMANIFESTS_DIR = '/home/ubuntu/D9/Group1_Deployment9/backend'
+        KUBEMANIFESTS_DIR = 'KUBESMANIFESTS_DIR'
     }
-
     stages {
         stage('Build Backend') {
             steps {
-                sh 'docker build -t z0sun/webstoreback:1.0 -f /backend/Dockerfile .'
+                sh 'docker build -t z0sun/webstoreback:1.0 -f backend/Dockerfile .'
                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
                 sh 'docker push z0sun/webstoreback:1.0'  // Corrected the Docker image tag for push
             }
         }
-
         stage('Build Frontend') {
             steps {
-                sh 'docker build -t z0sun/webstorefront:1.0 -f /frontend/Dockerfile .'
+                sh 'docker build -t z0sun/webstorefront2 -f frontend/Dockerfile .'
                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-                sh 'docker push z0sun/webstorefront:1.0'  // Corrected the Docker image tag for push
+                sh 'docker push z0sun/webstorefront2'  // Corrected the Docker image tag for push
             }
         }
-
         stage('Deploy to EKS') {
             agent {
                 label 'awsDeploy2'
@@ -43,31 +39,16 @@ pipeline {
                 }
             }
         }
-
-        stage('Slack Notification') {
-            steps {
-                script {
-                    withCredentials([
-                        string(credentialsId: 'AWS_ACCESS_KEY', variable: 'aws_access_key'),
-                        string(credentialsId: 'AWS_SECRET_KEY', variable: 'aws_secret_key')
-                    ]) {
-                        sh """
-                            curl -X POST -H 'Content-type: application/json' \
-                            --data '{"text":"Jenkins Pipeline Complete!"}' \
-                        """
-                    }
-                }
-            }
-        }
-
-        stage('Run SlackAPI Script') {
-            steps {
-                checkout scm
-                sh 'pip install requests'
-                sh 'pip install python-dotenv'  // Install python-dotenv library
-                sh 'python slackapi.py'  // Run the SlackAPI script
-            }
-        }
+   stage('Run SlackAPI Script') {
+    steps {
+        checkout scm
+        sh 'sudo apt update && sudo apt install -y python3 python3-pip'
+        sh 'pip3 install requests'
+        sh 'pip3 install python-dotenv'
+        sh 'export PATH=$PATH:/home/ubuntu/.local/bin'
+        sh 'python3 slackapi.py'
+      }
     }
+  }
 }
-
+//comment

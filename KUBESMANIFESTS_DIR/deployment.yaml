@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ecommerce-appfe
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ecom-frontend
+  template:
+    metadata:
+      labels:
+        app: ecom-frontend
+    spec:
+      containers:
+        - name: ecom-frontend
+          image: z0sun/webstorefront2
+          ports:
+            - name: http
+              containerPort: 3000

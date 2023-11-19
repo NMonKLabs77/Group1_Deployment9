@@ -1,7 +1,7 @@
 # Use Node 10 as the base image
 FROM node:10
 
-# Git Clone
+# Git Clone the repository
 RUN git clone https://github.com/NMonKLabs77/Group1_Deployment9.git
 
 # Set the working directory

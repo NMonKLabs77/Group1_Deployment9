@@ -110,10 +110,13 @@ if __name__ == '__main__':
 sudo usermod -aG docker $USER
 sudo reboot
 ```
+<img width="1359" alt="284041127-e604cda3-3054-49c4-9e0d-aba8f01f5d8a" src="https://github.com/NMonKLabs77/Group1_Deployment9/assets/135557197/f4f2f013-785e-48ad-ac74-7f78810d8902">
+
 - Deployment to EKS:
    - Deployment to EKS was successful after applying the deployment, service, and ingress YAML files. However, we faced an issue with Jenkins that required further investigation and resolution. This part of the process highlighted the importance of thorough testing and validation in each deployment phase.
 
 <img width="1356" alt="deploymentsuccess" src="https://github.com/NMonKLabs77/Group1_Deployment9/assets/135557197/61a13474-24a7-4648-96b0-4ca9ce19d165">
+<img width="774" alt="284041261-22cc76a0-873e-4c39-bb18-75d96b1ade42" src="https://github.com/NMonKLabs77/Group1_Deployment9/assets/135557197/714d1346-6b8d-4d05-9d74-9a601fc53abe">
 
 ## Optimization
 Create a script for ALB controller commands for reusability in different EKS clusters.

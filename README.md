@@ -113,6 +113,8 @@ sudo reboot
 - Deployment to EKS:
    - Deployment to EKS was successful after applying the deployment, service, and ingress YAML files. However, we faced an issue with Jenkins that required further investigation and resolution. This part of the process highlighted the importance of thorough testing and validation in each deployment phase.
 
+<img width="1356" alt="deploymentsuccess" src="https://github.com/NMonKLabs77/Group1_Deployment9/assets/135557197/61a13474-24a7-4648-96b0-4ca9ce19d165">
+
 ## Optimization
 Create a script for ALB controller commands for reusability in different EKS clusters.
  - This format provides a clear and concise overview of the project, its purpose, steps for deployment, and additional important information such as post-deployment tasks and troubleshooting. Feel free to modify or add to this template to better suit your project's needs.

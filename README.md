@@ -88,22 +88,7 @@ Post-Deployment Tasks
 Integrate Jenkins with Slack
 ```
 ## Use a Python script to enable real-time notifications to a Slack channel about the Jenkins pipeline status:
-```
-import requests
-from urllib.parse import urlencode
 
-def send_slack_message(message):
-    slack_webhook_url = 'your-slack-webhook-url'
-    payload = {'text': message}
-    response = requests.post(
-        slack_webhook_url, data=urlencode(payload),
-        headers={'Content-Type': 'application/x-www-form-urlencoded'}
-    )
-    return response.status_code == 200
-
-if __name__ == '__main__':
-    send_slack_message('Jenkins pipeline completed.')
-```
 ![Screen Shot 2023-11-19 at 1 28 01 AM](https://github.com/NMonKLabs77/Group1_Deployment9/assets/135557197/795ecad0-bbea-4689-8243-dba442ba63b1)
 
 ## Deployment to EKS:

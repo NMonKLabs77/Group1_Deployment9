@@ -43,23 +43,7 @@ pipeline {
                 }
             }
         }
-
-        stage('Slack Notification') {
-            steps {
-                script {
-                    withCredentials([
-                        string(credentialsId: 'AWS_ACCESS_KEY', variable: 'aws_access_key'),
-                        string(credentialsId: 'AWS_SECRET_KEY', variable: 'aws_secret_key')
-                    ]) {
-                        sh """
-                            curl -X POST -H 'Content-type: application/json' \
-                            --data '{"text":"Jenkins Pipeline Complete!"}' \
-                        """
-                    }
-                }
-            }
-        }
-
+        
         stage('Run SlackAPI Script') {
             steps {
                 checkout scm

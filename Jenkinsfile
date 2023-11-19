@@ -21,7 +21,7 @@ pipeline {
 
         stage('Build Frontend') {
             steps {
-                sh 'docker build -t z0sun/webstorefront:2.0 -f frontend/Dockerfile .'
+                sh 'docker build -t z0sun/webstorefront2 -f frontend/Dockerfile .'
                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
                 sh 'docker push z0sun/webstorefront:1.0'  // Corrected the Docker image tag for push
             }

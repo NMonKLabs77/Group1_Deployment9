@@ -44,20 +44,20 @@ pipeline {
             }
         }
         
-        stage('Run SlackAPI Script') {
-            steps {
-            checkout scm
-            sh 'sudo apt update && sudo apt install -y python3 python3-pip'
-            sh 'pip3 install requests' // Use pip3 for Python 3
-            sh 'pip3 install python-dotenv'  // Install python-dotenv library with pip3
-            sh 'export PATH=$PATH:/home/ubuntu/.local/bin' // Add /home/ubuntu/.local/bin to PATH
-            
-            // Navigate to the directory where slackapi.py resides if needed
-            sh 'cd /SlackAPI'
-            
-            sh 'python3 slackapi.py'  // Run the SlackAPI script with python3
-       }
+   stage('Run SlackAPI Script') {
+    steps {
+        checkout scm
+        sh 'sudo apt update && sudo apt install -y python3 python3-pip'
+        sh 'pip3 install requests'
+        sh 'pip3 install python-dotenv'
+        sh 'export PATH=$PATH:/home/ubuntu/.local/bin'
+        
+        dir('SlackAPI') {
+            sh 'python3 slackapi.py'
+        }
+      }
     }
+
   }
 }
 
